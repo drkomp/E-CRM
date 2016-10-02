@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 /**
  * Created by drkomp on 01.10.2016.
  */
-public class Contact {
+public abstract class Contact {
     private String name;
     private String phoneticName;
     private String notes;
