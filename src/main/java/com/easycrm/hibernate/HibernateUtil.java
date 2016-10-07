@@ -1,4 +1,4 @@
-package hibernate;
+package com.easycrm.hibernate;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,8 +11,7 @@ public class HibernateUtil {
 
     static {
 
-        // Configuration cfg = new Configuration().configure();
-        // StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
+        //creates the session factory from  hibernate.cfg.xml
 
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
