@@ -29,8 +29,23 @@ public class Address {
     @Column(name = "route")
     private String route;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @JoinColumn( name = "contragent_id", nullable = false)
+    private Contragent contragent;
+
+
     public Address() {
     }
+
+    public Address(String type, String index, String city, String address, String neighborhood, String route) {
+        this.type = type;
+        this.index = index;
+        this.city = city;
+        this.address = address;
+        this.neighborhood = neighborhood;
+        this.route = route;
+    }
+    
 
     public String getType() {
         return type;

@@ -12,8 +12,15 @@
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="com.easycrm.contragents.Phone"/>
         <mapping class="com.easycrm.contragents.Address"/>
         <mapping class="com.easycrm.contragents.Chat"/>
+        <mapping class="com.easycrm.contragents.Client"/>
+        <mapping class="com.easycrm.contragents.Contragent"/>
+        <mapping class="com.easycrm.contragents.ContragentEvent"/>
+        <mapping class="com.easycrm.contragents.Email"/>
+        <mapping class="com.easycrm.contragents.Organization"/>
+        <mapping class="com.easycrm.contragents.Phone"/>
+        <mapping class="com.easycrm.contragents.WebSite"/>
+
     </session-factory>
 </hibernate-configuration>

@@ -19,4 +19,41 @@ public class WebSite {
     private String type;
     @Column(name = "url")
     private String url;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @JoinColumn( name = "contragent_id", nullable = false)
+    private Contragent contragent;
+
+    public WebSite() {
+    }
+
+    public WebSite(String type, String url, long contragent) {
+        this.type = type;
+        this.url = url;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 }
