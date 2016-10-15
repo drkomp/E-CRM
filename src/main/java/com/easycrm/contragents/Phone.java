@@ -29,30 +29,35 @@ public class Phone {
 
 
 
-    public Phone() {
+    public Phone() {}
+
+    public Phone(String type, String phone, Contragent contragent) {
+        this.type = type;
+        this.phone = phone;
+        this.contragent = contragent;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public Phone setId(long id) {this.id = id; return this;}
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public Phone setType(String type) {this.type = type; return this;}
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public Phone setPhone(String phone) {this.phone = phone; return this;}
+
+    public Contragent getContragent() {
+        return contragent;
     }
+
+    public Phone setContragent(Contragent contragent) {this.contragent = contragent; return this;}
 }

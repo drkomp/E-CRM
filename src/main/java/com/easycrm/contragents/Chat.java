@@ -30,32 +30,31 @@ public class Chat {
     public Chat() {
     }
 
-    public Chat(String type, String chat) {
+    public Chat(String type, String chat, Contragent contragent) {
         this.type = type;
         this.chat = chat;
+        this.contragent = contragent;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public Chat setId(long id) {this.id = id; return this;}
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public Chat setType(String type) {this.type = type; return this;}
 
     public String getChat() {
         return chat;
     }
 
-    public void setChat(String chat) {
-        this.chat = chat;
-    }
+    public Chat setChat(String chat) {this.chat = chat; return this;}
+
+    public Contragent getContragent() {return contragent;}
+
+    public Chat setContragent(Contragent contragent) {this.contragent = contragent; return this;}
 }

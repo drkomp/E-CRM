@@ -61,81 +61,60 @@ public abstract class Contragent {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public Contragent setName(String name) {this.name = name; return this;}
 
     public String getPhoneticName() {
         return phoneticName;
     }
 
-    public void setPhoneticName(String phoneticName) {
-        this.phoneticName = phoneticName;
-    }
+    public Contragent setPhoneticName(String phoneticName) {this.phoneticName = phoneticName; return this;}
 
     public String getNotes() {
         return notes;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+    public Contragent setNotes(String notes) {this.notes = notes; return this; }
 
     public Contragent getAddressed() {
         return addressed;
     }
 
-    public void setAddressed(Contragent addressed) {
-        this.addressed = addressed;
-    }
+    public Contragent setAddressed(Contragent addressed) {this.addressed = addressed; return this;}
 
     public Set<Phone> getPhones() {
         return phones;
     }
 
-    public void setPhones(LinkedHashSet<Phone> phones) {
-        this.phones = phones;
-    }
+    public Contragent setPhones(Set<Phone> phones) {this.phones = phones; return this;}
 
     public Set<Address> getAdresses() {
         return adresses;
     }
 
-    public void setAdresses(LinkedHashSet<Address> adresses) {
-        this.adresses = adresses;
-    }
-    public void addAddress(Address a){this.adresses.add(a);}
+    public Contragent setAdresses(Set<Address> adresses) {this.adresses = adresses; return this;}
 
     public Set<Email> getEmails() {
         return emails;
     }
 
-    public void setEmails(LinkedHashSet<Email> emails) {
-        this.emails = emails;
-    }
+    public Contragent setEmails(Set<Email> emails) {this.emails = emails; return this;}
 
     public Set<Chat> getChats() {
         return chats;
     }
 
-    public void setChats(LinkedHashSet<Chat> chats) {
-        this.chats = chats;
-    }
+    public Contragent setChats(Set<Chat> chats) {this.chats = chats; return this;}
 
     public Set<WebSite> getWebSites() {
         return webSites;
     }
 
-    public void setWebSites(LinkedHashSet<WebSite> webSites) {
-        this.webSites = webSites;
-    }
+    public Contragent setWebSites(Set<WebSite> webSites) {this.webSites = webSites; return this;}
 
     public Set<ContragentEvent> getContragentEvents() {
         return contragentEvents;
     }
 
-    public void setContragentEvents(LinkedHashSet<ContragentEvent> contragentEvents) {
-        this.contragentEvents = contragentEvents;
-    }
+    public Contragent setContragentEvents(Set<ContragentEvent> contragentEvents) {this.contragentEvents = contragentEvents; return this;}
 
 }

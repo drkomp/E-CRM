@@ -29,65 +29,107 @@ public class Client extends Contragent {
         super();
     }
 
-
-
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public Client setName(String name) {
+        super.setName(name);
+        return this;
     }
+
+    @Override
+    public Client setPhoneticName(String phoneticName) {
+        super.setPhoneticName(phoneticName);
+        return this;
+    }
+
+    @Override
+    public Client setNotes(String notes) {
+        super.setNotes(notes);
+        return this;
+    }
+
+    @Override
+    public Client setAddressed(Contragent addressed) {
+        super.setAddressed(addressed);
+        return this;
+    }
+
+    @Override
+    public Client setPhones(Set<Phone> phones) {
+        super.setPhones(phones);
+        return this;
+    }
+
+    @Override
+    public Client setAdresses(Set<Address> adresses) {
+        super.setAdresses(adresses);
+        return this;
+    }
+
+    @Override
+    public Client setEmails(Set<Email> emails) {
+        super.setEmails(emails);
+        return this;
+    }
+
+    @Override
+    public Client setChats(Set<Chat> chats) {
+        super.setChats(chats);
+        return this;
+    }
+
+    @Override
+    public Client setWebSites(Set<WebSite> webSites) {
+        super.setWebSites(webSites);
+        return this;
+    }
+
+    @Override
+    public Client setContragentEvents(Set<ContragentEvent> contragentEvents) {
+        super.setContragentEvents(contragentEvents);
+        return this;
+    }
+
+    public Client setId(int id) {this.id = id; return this;}
 
     public String getNamePrefix() {
         return namePrefix;
     }
 
-    public void setNamePrefix(String namePrefix) {
-        this.namePrefix = namePrefix;
-    }
+    public Client setNamePrefix(String namePrefix) {this.namePrefix = namePrefix; return this;}
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
+    public Client setSurname(String surname) {this.surname = surname; return this;}
 
     public String getPatronymic() {
         return patronymic;
     }
 
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
-    }
+    public Client setPatronymic(String patronymic) {this.patronymic = patronymic; return this;}
 
     public String getNameSuffix() {
         return nameSuffix;
     }
 
-    public void setNameSuffix(String nameSuffix) {
-        this.nameSuffix = nameSuffix;
-    }
+    public Client setNameSuffix(String nameSuffix) {this.nameSuffix = nameSuffix; return this;}
 
     public String getNickName() {
         return nickName;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
+    public Client setNickName(String nickName) {this.nickName = nickName; return this;}
 
     public String getPhoneticSurname() {
         return phoneticSurname;
     }
 
-    public void setPhoneticSurname(String phoneticSurname) {
-        this.phoneticSurname = phoneticSurname;
-    }
+    public Client setPhoneticSurname(String phoneticSurname) {this.phoneticSurname = phoneticSurname; return this;}
 
     public Set<Organization> getOrganizations() {
         return organizations;
     }
 
-    public void setOrganizations(LinkedHashSet<Organization> organizations) {
-        this.organizations = organizations;
-    }
+    public Client setOrganizations(Set<Organization> organizations) {this.organizations = organizations; return this;}
 }

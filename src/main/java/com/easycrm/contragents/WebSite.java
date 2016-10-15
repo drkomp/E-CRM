@@ -27,9 +27,10 @@ public class WebSite {
     public WebSite() {
     }
 
-    public WebSite(String type, String url, long contragent) {
+    public WebSite(String type, String url, Contragent contragent) {
         this.type = type;
         this.url = url;
+        this.contragent = contragent;
     }
 
     public long getId() {
@@ -44,16 +45,12 @@ public class WebSite {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public WebSite setType(String type) {this.type = type; return this;}
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    public WebSite setUrl(String url) {this.url = url;return this;}
 
 }

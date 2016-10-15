@@ -28,27 +28,27 @@ public class Email {
     public Email() {
     }
 
+    public Email(String type, String eMail, Contragent contragent) {
+        this.type = type;
+        this.eMail = eMail;
+        this.contragent = contragent;
+    }
+
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public Email setId(long id) {this.id = id; return this;}
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public Email setType(String type) {this.type = type; return this;}
 
     public String geteMail() {
         return eMail;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
-    }
+    public Email seteMail(String eMail) {this.eMail = eMail; return this;}
 }
