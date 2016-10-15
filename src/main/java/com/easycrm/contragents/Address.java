@@ -29,7 +29,7 @@ public class Address {
     @Column(name = "route")
     private String route;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "contragent_id", nullable = false)
     private Contragent contragent;
 

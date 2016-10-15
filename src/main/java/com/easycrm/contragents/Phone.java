@@ -22,7 +22,7 @@ public class Phone {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "contragent_id", nullable = false)
     private Contragent contragent;
 

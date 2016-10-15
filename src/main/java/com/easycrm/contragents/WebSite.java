@@ -20,7 +20,7 @@ public class WebSite {
     @Column(name = "url")
     private String url;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "contragent_id", nullable = false)
     private Contragent contragent;
 

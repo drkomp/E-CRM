@@ -13,7 +13,7 @@ import java.util.Set;
 public class Organization extends Contragent {
     private String erdpu;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "client_organization",
                 joinColumns = @JoinColumn(name = "organization_id"),
                 inverseJoinColumns = @JoinColumn(name = "client_id"))

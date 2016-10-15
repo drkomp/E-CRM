@@ -22,7 +22,7 @@ public class Client extends Contragent {
     private String phoneticSurname;
 
     //oganization can have link to many clients, and one client can have link to many organizations
-    @ManyToMany(mappedBy = "clients", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @ManyToMany(mappedBy = "clients", cascade = {CascadeType.ALL})
     private Set<Organization> organizations = new LinkedHashSet<>(); //like 'Director' - 'Farlep-Invest'
 
     public Client() {

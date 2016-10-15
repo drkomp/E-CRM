@@ -20,7 +20,7 @@ public class Email {
     @Column(name = "email")
     private String eMail;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "contragent_id", nullable = false)
     private Contragent contragent;
 
