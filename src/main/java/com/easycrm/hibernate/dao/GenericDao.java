@@ -10,6 +10,7 @@ import java.sql.SQLException;
  */
 public class GenericDao<Entity> implements AbstractGDao<Entity> {
 
+    @Override
     public Entity getItById(Class<Entity> clazz, long id) throws SQLException {
         Entity result = null;
 
@@ -24,6 +25,7 @@ public class GenericDao<Entity> implements AbstractGDao<Entity> {
         return result;
     }
 
+    @Override
     public void addIt(Entity entity) throws SQLException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -34,6 +36,7 @@ public class GenericDao<Entity> implements AbstractGDao<Entity> {
         }
     }
 
+    @Override
     public void updateIt(Entity entity) throws SQLException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -45,6 +48,17 @@ public class GenericDao<Entity> implements AbstractGDao<Entity> {
 
     }
 
+    @Override
+    public void persistIt(Entity entity) throws SQLException {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.persist(entity);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
     public void deleteIt(Entity entity) throws SQLException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
@@ -53,7 +67,6 @@ public class GenericDao<Entity> implements AbstractGDao<Entity> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
 
