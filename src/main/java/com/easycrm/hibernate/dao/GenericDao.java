@@ -9,64 +9,37 @@ import java.sql.SQLException;
  * Created by drkomp on 03.10.2016.
  */
 public class GenericDao<Entity> implements AbstractGDao<Entity> {
-
+//if you need no fetch profile use fetchProfile=""
     @Override
     public Entity getItById(Class<Entity> clazz, long id) throws SQLException {
         Entity result = null;
-
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            result = clazz.cast(session.get(clazz, id));
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        result = clazz.cast(session.get(clazz, id));
         return result;
     }
 
     @Override
     public void addIt(Entity entity) throws SQLException {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.save(entity);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     public void updateIt(Entity entity) throws SQLException {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.update(entity);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     @Override
     public void persistIt(Entity entity) throws SQLException {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.persist(entity);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
+
     @Override
     public void deleteIt(Entity entity) throws SQLException {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.delete(entity);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
 

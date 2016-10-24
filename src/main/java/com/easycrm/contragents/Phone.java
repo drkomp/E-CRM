@@ -26,15 +26,13 @@ public class Phone {
     @JoinColumn( name = "contragent_id", nullable = false)
     private Contragent contragent;
 
-
-
-
     public Phone() {}
 
     public Phone(String type, String phone, Contragent contragent) {
         this.type = type;
         this.phone = phone;
         this.contragent = contragent;
+        contragent.getPhones().add(this);
     }
 
     public long getId() {
@@ -59,5 +57,8 @@ public class Phone {
         return contragent;
     }
 
-    public Phone setContragent(Contragent contragent) {this.contragent = contragent; return this;}
+    public Phone setContragent(Contragent contragent) {
+        this.contragent = contragent;
+        contragent.getPhones().add(this);
+        return this;}
 }

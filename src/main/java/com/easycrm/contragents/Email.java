@@ -32,6 +32,7 @@ public class Email {
         this.type = type;
         this.eMail = eMail;
         this.contragent = contragent;
+        contragent.getEmails().add(this);
     }
 
     public long getId() {
@@ -51,4 +52,14 @@ public class Email {
     }
 
     public Email seteMail(String eMail) {this.eMail = eMail; return this;}
+
+    public Contragent getContragent() {
+        return contragent;
+    }
+
+    public Email setContragent(Contragent contragent) {
+        this.contragent = contragent;
+        contragent.getEmails().add(this);
+        return this;
+    }
 }

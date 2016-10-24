@@ -34,6 +34,7 @@ public class Chat {
         this.type = type;
         this.chat = chat;
         this.contragent = contragent;
+        contragent.getChats().add(this);
     }
 
     public long getId() {
@@ -56,5 +57,8 @@ public class Chat {
 
     public Contragent getContragent() {return contragent;}
 
-    public Chat setContragent(Contragent contragent) {this.contragent = contragent; return this;}
+    public Chat setContragent(Contragent contragent) {
+        this.contragent = contragent;
+        contragent.getChats().add(this);
+        return this;}
 }

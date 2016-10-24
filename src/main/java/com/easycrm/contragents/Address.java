@@ -42,6 +42,7 @@ public class Address {
         this.neighborhood = neighborhood;
         this.route = route;
         this.contragent = contragent;
+        contragent.getAdresses().add(this);
     }
 
     public String getType() {
@@ -90,5 +91,8 @@ public class Address {
         return contragent;
     }
 
-    public Address setContragent(Contragent contragent) {this.contragent = contragent; return this;}
+    public Address setContragent(Contragent contragent) {
+        this.contragent = contragent;
+        contragent.getAdresses().add(this);
+        return this;}
 }

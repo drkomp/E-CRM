@@ -10,4 +10,5 @@ public interface AbstractGDao<Entity> {
     public void addIt(Entity entity)throws SQLException;
     public void updateIt(Entity entity)throws SQLException;
     public void deleteIt(Entity entity) throws SQLException;
+    public void persistIt(Entity entity) throws SQLException;
 }

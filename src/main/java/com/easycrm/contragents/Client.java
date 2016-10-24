@@ -1,9 +1,10 @@
 package com.easycrm.contragents;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.FetchProfile;
+import org.hibernate.annotations.FetchProfiles;
+
+import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class Client extends Contragent {
     private String phoneticSurname;
 
     //oganization can have link to many clients, and one client can have link to many organizations
-    @ManyToMany(mappedBy = "clients", cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy = "clients", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Organization> organizations = new LinkedHashSet<>(); //like 'Director' - 'Farlep-Invest'
 
     public Client() {

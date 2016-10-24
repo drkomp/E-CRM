@@ -1,6 +1,10 @@
 package com.easycrm.contragents;
 
 
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.FetchProfile;
+import org.hibernate.annotations.FetchProfiles;
+
 import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -13,7 +17,7 @@ import java.util.Set;
 public class Organization extends Contragent {
     private String erdpu;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "client_organization",
                 joinColumns = @JoinColumn(name = "organization_id"),
                 inverseJoinColumns = @JoinColumn(name = "client_id"))
@@ -23,6 +27,11 @@ public class Organization extends Contragent {
         super();
     }
 
+    @Override
+    public Organization setName(String name) {
+        super.setName(name);
+        return this;
+    }
 
     @Override
     public Organization setPhoneticName(String phoneticName) {

@@ -1,5 +1,8 @@
 package com.easycrm.contragents;
 
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.FetchProfile;
+import org.hibernate.annotations.FetchProfiles;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -27,10 +30,10 @@ public abstract class Contragent {
     protected String notes;
 
 
-    @OneToOne (fetch = FetchType.LAZY, optional = true)
+    @OneToOne (fetch = FetchType.LAZY, optional = true, cascade = CascadeType.ALL)
     protected Contragent addressed ; //Who addressed this client to me
 
-    @OneToMany (fetch = FetchType.LAZY, orphanRemoval = true, cascade = {CascadeType.ALL})
+    @OneToMany (fetch = FetchType.LAZY,  cascade = {CascadeType.ALL})
     @JoinColumn(name = "contragent_id")
     protected Set<Phone> phones = new LinkedHashSet<Phone>() ; //like 'mobile' - '0987654321'
 
@@ -38,23 +41,27 @@ public abstract class Contragent {
     @JoinColumn(name = "contragent_id")
     protected Set<Address> adresses = new LinkedHashSet<>();        //like 'home' - 'Uborevicha st. 15 office 2'
 
-    @OneToMany (fetch = FetchType.LAZY,  orphanRemoval = true, cascade = {CascadeType.ALL})
+    @OneToMany (fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "contragent_id")
     protected Set<Email> emails = new LinkedHashSet<>(); //like 'private' 'fedor.kusch@gmail.com'
 
-    @OneToMany (fetch = FetchType.LAZY,  orphanRemoval = true, cascade = {CascadeType.ALL})
+    @OneToMany (fetch = FetchType.LAZY,  cascade = {CascadeType.ALL})
     @JoinColumn(name = "contragent_id")
     protected Set<Chat> chats = new LinkedHashSet<>(); //like 'skype' - 'fedor.kusch'
 
-    @OneToMany (fetch = FetchType.LAZY,  orphanRemoval = true, cascade = {CascadeType.ALL})
+    @OneToMany (fetch = FetchType.LAZY,  cascade = {CascadeType.ALL})
     @JoinColumn(name = "contragent_id")
     protected Set<WebSite> webSites= new LinkedHashSet<>();
 
-    @OneToMany (fetch = FetchType.LAZY,  orphanRemoval = true, cascade = {CascadeType.ALL})
+    @OneToMany (fetch = FetchType.LAZY,   cascade = {CascadeType.ALL})
     @JoinColumn(name = "contragent_id")
     protected Set<ContragentEvent> contragentEvents= new LinkedHashSet<>(); //like 'birthday' - '12.01.2001'
 
     public Contragent() {
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {

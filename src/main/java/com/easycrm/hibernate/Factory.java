@@ -2,6 +2,7 @@ package com.easycrm.hibernate;
 
 import com.easycrm.contragents.Address;
 import com.easycrm.contragents.Client;
+import com.easycrm.contragents.Organization;
 import com.easycrm.contragents.Phone;
 import com.easycrm.hibernate.dao.GenericDao;
 
@@ -9,6 +10,7 @@ public class Factory {
     private static GenericDao<Phone> phoneDao = null;
     private static GenericDao<Address> addressDao = null;
     private static GenericDao<Client> clientDao = null;
+    private static GenericDao<Organization> orgDao = null;
     private static Factory instance = null;
 
     public static synchronized Factory getInstance(){
@@ -32,11 +34,18 @@ public class Factory {
         return addressDao;
     }
 
-    public  GenericDao<Client> getaclientDao(){
+    public  GenericDao<Client> getclientDao(){
         if (clientDao == null){
             clientDao = new GenericDao<Client>();
         }
         return clientDao;
+    }
+
+    public  GenericDao<Organization> getOrganizationDao(){
+        if (orgDao == null){
+            orgDao = new GenericDao<Organization>();
+        }
+        return orgDao;
     }
 
 }

@@ -19,7 +19,7 @@ public class ContragentEvent {
     @Column(name = "evet_name")
     private String eventName;
     @Column(name = "date")
-    private Date date;
+    private String date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "contragent_id", nullable = false)
@@ -27,10 +27,11 @@ public class ContragentEvent {
 
     public ContragentEvent() {}
 
-    public ContragentEvent(String eventName, Date date, Contragent contragent) {
+    public ContragentEvent(String eventName, String date, Contragent contragent) {
         this.eventName = eventName;
         this.date = date;
         this.contragent = contragent;
+        contragent.getContragentEvents().add(this);
     }
 
     public int getId() {
@@ -45,15 +46,18 @@ public class ContragentEvent {
 
     public ContragentEvent setEventName(String eventName) {this.eventName = eventName; return this;}
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public ContragentEvent setDate(Date date) {this.date = date; return this;}
+    public ContragentEvent setDate(String date) {this.date = date; return this;}
 
     public Contragent getContragent() {
         return contragent;
     }
 
-    public ContragentEvent setContragent(Contragent contragent) {this.contragent = contragent; return this;}
+    public ContragentEvent setContragent(Contragent contragent) {
+        this.contragent = contragent;
+        contragent.getContragentEvents().add(this);
+        return this;}
 }

@@ -4,10 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Created by drkomp on 18.09.2016.
+ * Created by drkomp on 24.10.2016.
  */
 @Entity
-@Table(name = "operators")
-public class Operator extends User {
-
+@Table(name = "admins")
+public class Admin extends User {
 }

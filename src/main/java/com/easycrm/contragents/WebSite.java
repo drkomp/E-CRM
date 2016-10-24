@@ -31,6 +31,7 @@ public class WebSite {
         this.type = type;
         this.url = url;
         this.contragent = contragent;
+        contragent.getWebSites().add(this);
     }
 
     public long getId() {
@@ -53,4 +54,13 @@ public class WebSite {
 
     public WebSite setUrl(String url) {this.url = url;return this;}
 
+    public Contragent getContragent() {
+        return contragent;
+    }
+
+    public WebSite setContragent(Contragent contragent) {
+        this.contragent = contragent;
+        contragent.getWebSites().add(this);
+        return this;
+    }
 }
